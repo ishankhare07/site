@@ -19,7 +19,7 @@ class WsHandler(tornado.websocket.WebSocketHandler):
 	connected = {}
 	def open(self):
 		unnamed.append(self)
-		self.write_message('Enter your name : ')
+		self.write_message('Enter your name : ')#this is a test
 
 	def on_message(self,message):
 		if self not in connected:
