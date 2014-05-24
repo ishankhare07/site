@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Exec=bash -c "cd ${HOME}/Desktop/chat; python chat.pyc"
+Terminal=False
