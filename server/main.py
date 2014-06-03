@@ -18,8 +18,8 @@ class WsHandler(tornado.websocket.WebSocketHandler):
 					
 				client.write_message('%s >> %s' %(connected[self],message))
 
-	#unnamed = []
-	#connected = {}
+	unnamed = []
+	connected = {}
 	def open(self):
 		unnamed.append(self)
 		self.write_message('Enter your name : ')#this is a test
