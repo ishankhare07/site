@@ -1,5 +1,6 @@
 import os
 import sys
+import pymongo
 import tornado.web
 import tornado.httpserver
 import tornado.ioloop
@@ -13,10 +14,12 @@ class WsHandler(tornado.websocket.WebSocketHandler):
 	def send_message(self,sock,message):
 		for client in connected.keys():
 			if client is not sock:
+				if db.find_one({'name' : connected[self]}):
+					
 				client.write_message('%s >> %s' %(connected[self],message))
 
-	unnamed = []
-	connected = {}
+	#unnamed = []
+	#connected = {}
 	def open(self):
 		unnamed.append(self)
 		self.write_message('Enter your name : ')#this is a test
