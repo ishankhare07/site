@@ -41,8 +41,8 @@ class ListHandler(tornado.websocket.WebSocketHandler):
 		try:
 			if message.strip() == 'get':
 				self.write_message(json.dumps(connected))
-		except:
-			pass
+		except e:
+			self.write_message('error detected %s' %e)
 
 app = tornado.web.Application([
 	(r'/',WsHandler),
