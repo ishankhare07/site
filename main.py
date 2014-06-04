@@ -4,6 +4,7 @@ import tornado.web
 import tornado.httpserver
 import tornado.ioloop
 import tornado.websocket
+import json
 
 unnamed = []
 connected = {}
@@ -32,8 +33,17 @@ class WsHandler(tornado.websocket.WebSocketHandler):
 		self.send_message(self, 'Disconnected')
 		connected.pop(self)
 
+class ListHandler(tornado.websocket.WebSocketHandler):
+	def open(self):
+		self.write_message('acknowledged')
+
+	def on_message(self,message):
+		if message.strip() == 'get':
+			self.write_message(json.dumps(connected))
+
 app = tornado.web.Application([
 	(r'/',WsHandler),
+	(r'/connected',ListHandler)
 ])
 
 ws_server = tornado.httpserver.HTTPServer(app)
