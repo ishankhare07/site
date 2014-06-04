@@ -7,9 +7,11 @@ import tornado.websocket
 
 class WsHandler(tornado.websocket.WebSocketHandler):
 
-	def __init__(self):
+	def __init__(self,application,request):
+		tornado.websocket.WebSocketHandler.__init__(self,application,request)
 		self.unnamed = []
 		self.connected = {}
+
 
 	def send_message(self,sock,message):
 		for client in self.connected.keys():
