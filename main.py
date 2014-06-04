@@ -38,11 +38,11 @@ class ListHandler(tornado.websocket.WebSocketHandler):
 		self.write_message('acknowledged')
 
 	def on_message(self,message):
-		try:
-			if message.strip() == 'get':
+		if message.strip() == 'get':
+			try:
 				self.write_message(json.dumps(connected.values()))
-		except json_error as e:
-			self.write_message('error detected %s' %e.value)
+			except json_error as e:
+				self.write_message('error detected %s' %e.value)
 
 app = tornado.web.Application([
 	(r'/',WsHandler),
