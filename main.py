@@ -42,7 +42,7 @@ class ListHandler(tornado.websocket.WebSocketHandler):
 			if message.strip() == 'get':
 				self.write_message(json.dumps(connected))
 		except:
-			continue
+			pass
 
 app = tornado.web.Application([
 	(r'/',WsHandler),
