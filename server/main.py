@@ -38,8 +38,11 @@ class ListHandler(tornado.websocket.WebSocketHandler):
 		self.write_message('acknowledged')
 
 	def on_message(self,message):
-		if message.strip() == 'get':
-			self.write_message(json.dumps(connected))
+		try:
+			if message.strip() == 'get':
+				self.write_message(json.dumps(connected))
+		except:
+			continue
 
 app = tornado.web.Application([
 	(r'/',WsHandler),
