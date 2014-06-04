@@ -5,26 +5,25 @@ import tornado.httpserver
 import tornado.ioloop
 import tornado.websocket
 
-unnamed = []
-connected = {}
-
 class WsHandler(tornado.websocket.WebSocketHandler):
 
-	def send_message(self,sock,message):
-		for client in connected.keys():
-			if client is not sock:
-				client.write_message('%s >> %s' %(connected[self],message))
+	def __init__(self):
+		self.unnamed = []
+		self.connected = {}
 
-	#unnamed = []
-	#connected = {}
+	def send_message(self,sock,message):
+		for client in self.connected.keys():
+			if client is not sock:
+				client.write_message('%s >> %s' %(self.connected[self],message))
+
 	def open(self):
-		unnamed.append(self)
+		self.unnamed.append(self)
 		self.write_message('Enter your name : ')#this is a test
 
 	def on_message(self,message):
-		if self not in connected:
-			connected[self] = message
-			unnamed.remove(self)
+		if self not in self.connected:
+			self.connected[self] = message
+			self.unnamed.remove(self)
 			self.send_message(self,'Connected')
 		else:
 			self.send_message(self,message)
@@ -32,7 +31,7 @@ class WsHandler(tornado.websocket.WebSocketHandler):
 
 	def on_close(self):
 		self.send_message(self, 'Disconnected')
-		connected.pop(self)
+		self.connected.pop(self)
 
 app = tornado.web.Application([
 	(r'/',WsHandler),
