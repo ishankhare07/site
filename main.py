@@ -40,7 +40,7 @@ class ListHandler(tornado.websocket.WebSocketHandler):
 	def on_message(self,message):
 		try:
 			if message.strip() == 'get':
-				self.write_message(json.dumps(connected.keys()))
+				self.write_message(json.dumps(connected.values()))
 		except json_error as e:
 			self.write_message('error detected %s' %e.value)
 
