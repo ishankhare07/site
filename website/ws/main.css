@@ -10,7 +10,7 @@ html
 {
 	box-shadow : 5px 5px 10px 2px;
 	min-height : 20px;
-	min-width : 98%;
+	min-width : 98%
 	max-width : 98%;
 	border-style : solid;
 	border-width : 1px;
@@ -22,12 +22,36 @@ html
 	font-family : "Courier New";
 }
 
+#connected
+{
+	box-shadow : 5px 5px 10px 2px;
+	background-color : #E6E6E6;
+	min-width : 15%;
+	max-width : 15%;
+	min-height : 80%;
+	max-height : 80%;
+	font-family : "Courier New";
+	position : fixed;
+	top : 45px;
+	border-style : solid;
+	border-width : 1px;
+	border-radius : 5px;
+	padding-left : 20px;
+	padding-top : 10px;
+	padding-right : 10px;
+        padding-bottom : 10px;
+        overflow : scroll;
+        overflow-x : hidden;
+        word-wrap : break-word;
+}
+
 #display
 {
+	left : 19%;
 	background-color : white;
 	box-shadow : 5px 5px 10px 2px;
-	min-width : 96.75%;
-	max-width : 96.75%;
+	min-width : 77%;
+	max-width : 77%;
 	min-height : 80%;
 	max-height : 80%;
 	font-family : "Courier New";
