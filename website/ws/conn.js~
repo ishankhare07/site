@@ -1,0 +1,25 @@
+conn_ws = new WebSocket("ws://aqueous-bayou-7324.herokuapp.com/connected");
+conn_ws.onopen = function(){onConnOpen()};
+conn_ws.onmessage = function(msg){
+	alert('message');
+	var persons = "";
+	var list = JSON.parse(msg);
+	for(var i = 0 ; i < list.length ; i++) {
+		persons += list[i] + "<br>";
+	}
+	alert(persons);
+	block.innerHTML = users;
+};
+
+var block = document.getElementById("in_conn");
+
+function onConnOpen() {
+	var on = document.getElementById("connected");
+	alert('got connection');
+}
+
+callback = function get_status() {
+	conn_ws.send('get');
+}
+
+setInterval(callback,3000);

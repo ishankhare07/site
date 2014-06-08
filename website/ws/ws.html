@@ -3,6 +3,7 @@
 <title>Websocket Chat!</title>
 </head>
 <link rel = "stylesheet" type = "text/css" href = "main.css">
+<script src = "conn.js"></script>
 <script>
 	var count = 0;
 	window.onload = function () {
@@ -17,7 +18,7 @@
 		{
 			document.getElementById("status").innerHTML = "Connected";
 			document.getElementById("input").contentEditable = "true";
-			document.getElementById("buttonC").disabled = false;
+			document.getElementById("buttonC").disabled = false;			
 		}
 	};
 
@@ -75,7 +76,10 @@
 	</div>
 
 	<div id = "connected">
-		Online
+		<p>Online</p>
+		<br>
+		<div id = "in_conn">
+		</div>
 	</div>
 
 	<div id = "input" contenteditable = "true" onkeypress = "check_rtn(event)">
