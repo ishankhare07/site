@@ -7,13 +7,11 @@ conn_ws.onmessage = function(message){
 	for(var i in list) {
 		persons += list[i] + "<br>";
 	}
-	//alert(persons);
 	block.innerHTML = persons;
 };
 
 function onConnOpen() {
 	var on = document.getElementById("connected");
-	alert('got connection');
 }
 
 callback = function get_status() {
