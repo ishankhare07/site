@@ -4,6 +4,7 @@ html
 	max-height : auto;
 	overflow : scroll;
 	overflow-x : hidden;
+	background-color : #403080;
 }
 
 #status
@@ -57,11 +58,12 @@ html
 	font-family : "Courier New";
 	position : fixed;
 	top : 45px;
+	background-color : #71736B;
 	border-style : solid;
 	border-width : 1px;
 	border-radius : 5px;
 	padding-left : 20px;
-	padding-top : 0px;
+	padding-top : 15px;
 	padding-right : 10px;
 	padding-bottom : 10px;
 	overflow : scroll;
@@ -110,4 +112,23 @@ html
 	bottom : 3px;
 	font-family : "Courier New";
 	padding-top : 3px;
+}
+
+#time_wrapper
+{
+	position : relative;
+	font-faminly : "Courier New";
+	left : 875px;
+}
+
+#msg_wrapper
+{
+	padding : 5px;
+	font-family : "Courier New";
+	background-color : #DEFC62;
+	border-style : solid;
+	border-width : 1px;
+	border-radius : 7px;
+	border-color : #C7C9C1;
+	box-shadow : 1px 1px 3px 2px #C7C9C1;
 }

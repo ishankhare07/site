@@ -4,70 +4,13 @@
 </head>
 <link rel = "stylesheet" type = "text/css" href = "main.css">
 <script src = "conn.js"></script>
+<script src = "main.js"></script>
 <script>
-	var count = 0;
 	window.onload = function () {
 		document.getElementById("input").focus();
 	};
-
-	var ws = new WebSocket("ws://aqueous-bayou-7324.herokuapp.com");
-	ws.onopen = function() {onOpen()};
-
-	function onOpen() {
-		if(ws.readyState == 1)
-		{
-			document.getElementById("status").innerHTML = "Connected";
-			document.getElementById("input").contentEditable = "true";
-			document.getElementById("buttonC").disabled = false;			
-		}
-	};
-
-	ws.onclose = function(evt) {onClose()};
-
-	function onClose() {
-		ws.close();
-		document.getElementById("status").innerHTML = "Disconnected";
-		document.getElementById("input").contentEditable = "false";
-		document.getElementById("buttonC").disabled = true;
-	};
-
-	ws.onmessage = function(evt) {
-		var msg = String(evt.data);
-		var text = document.createTextNode(msg);
-		var br = document.createElement("br");
-		var box = document.getElementById("display");
-		box.appendChild(br);
-		box.appendChild(text);
-	};	
-
-	function send_msg() {
-		var box = document.getElementById("input");
-    		msg = String(box.textContent);
-		if(count === 0) {
-			msg = msg.slice(0,msg.length);
-		}
-		if(msg) {
-			ws.send(msg);
-			msg = document.createTextNode("You >> " + msg);
-			box.innerHTML = "";
-			var target = document.getElementById("display");
-			var br = document.createElement("br");
-			target.appendChild(br);
-			target.appendChild(msg);
-			document.getElementById("input").focus();
-			count++;
-		}
-	};
-
-	function check_rtn(e) {
-		var key = e.keycode || e.which;
-		if(key == 13) {
-			send_msg();
-		}
-	};
-
 </script>
-<body bgcolor = "#919191">
+<body>
 <div>
 	<div id = "status">
 	</div>
