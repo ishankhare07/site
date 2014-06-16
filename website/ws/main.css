@@ -4,7 +4,12 @@ html
 	max-height : auto;
 	overflow : scroll;
 	overflow-x : hidden;
-	background-color : #403080;
+	background-color: #026873;
+	background-image: linear-gradient(90deg, rgba(255,255,255,.07) 50%, transparent 50%),
+	linear-gradient(90deg, rgba(255,255,255,.13) 50%, transparent 50%),
+	linear-gradient(90deg, transparent 50%, rgba(255,255,255,.17) 50%),
+	linear-gradient(90deg, transparent 50%, rgba(255,255,255,.19) 50%);
+	background-size: 13px, 29px, 37px, 53px;
 }
 
 #status
@@ -69,6 +74,8 @@ html
 	overflow : scroll;
 	overflow-x : hidden;
 	word-wrap : break-word;
+	background : url(giftly.png);
+	backgroung-repeat : repeat;
 }
 
 #text
@@ -118,12 +125,13 @@ html
 {
 	position : relative;
 	font-faminly : "Courier New";
-	left : 875px;
+	margin-left : auto;
+	margin-right : auto;
 }
 
 #msg_wrapper
 {
-	padding : 5px;
+	padding : 10px;
 	font-family : "Courier New";
 	background-color : #DEFC62;
 	border-style : solid;

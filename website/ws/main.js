@@ -48,7 +48,6 @@ function display_message(msg) {
 		var target = document.getElementById("display");
 		var br = document.createElement("br");
 		var hr = document.createElement("hr");
-		hr.setAttribute("width","98%");
 		hr.setAttribute("align","center");
 		var t = create_time();
 		t = document.createTextNode(t);
