@@ -39,7 +39,13 @@ function create_time() {
 	var h = d.getHours();
 	var m = d.getMinutes();
 	var s = d.getSeconds();
-	var t = h + ":" + m + ":" + s;
+	var meridian = 'am';
+	if(h > 12) {
+		h = h % 12;
+		meridian = 'pm';
+	}
+
+	var t = h + ":" + m + ":" + s + " " + meridian;
 	return t;
 }
 

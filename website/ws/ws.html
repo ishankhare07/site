@@ -6,11 +6,21 @@
 <script src = "conn.js"></script>
 <script src = "main.js"></script>
 <script>
-	window.onload = function () {
+	function clear_loading() {
 		document.getElementById("input").focus();
-	};
+		var pro = document.getElementById("progress");
+		pro.style.display = 'none';
+	}
+	setTimeout(clear_loading,3000);
+
 </script>
 <body>
+<div id = "progress">
+	<div id = "loader">
+		<p style = "position : absolute; left : 40%; top : 30%;">Loading....</p>
+		<progress style = "position : absolute; left : 30%; top : 60%;"></progress>
+	</div>
+</div>
 <div>
 	<div id = "status">
 	</div>
