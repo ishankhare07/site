@@ -126,7 +126,7 @@ body
 	min-width : 89%;
 	max-width : 89%;
 	position : fixed;
-	bottom : 5px;
+	bottom : 1%;
 	left : 8px;
 	border : 2px solid #A4A4A4;
 	border-radius : 8px;
@@ -146,7 +146,7 @@ body
 	border-radius : 5px;
 	box-shadow : 3px 3px 5px 2px;
 	position : absolute;
-	bottom : 3px;
+	bottom : 1%;
 	font-family : "Courier New";
 	padding-top : 3px;
 }

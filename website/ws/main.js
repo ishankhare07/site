@@ -70,6 +70,7 @@ function display_message(msg) {
 		inner_block.appendChild(time_wrapper);
 		target.appendChild(inner_block);
 		target.appendChild(br);
+		target.scrollTop = target.scrollHeight;
 }
 
 function send_msg() {
