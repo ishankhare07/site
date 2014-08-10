@@ -21,7 +21,9 @@ class WsHandler(tornado.websocket.WebSocketHandler):
 		self.write_message('Enter your name : ')#this is a test
 
 	def on_message(self,message):
-		if self not in connected:
+		if message.strip() == 'ping':
+			pass
+		elif self not in connected:
 			connected[self] = message
 			unnamed.remove(self)
 			self.send_message(self,'Connected')
